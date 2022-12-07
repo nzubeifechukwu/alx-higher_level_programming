@@ -12,6 +12,7 @@ def best_score(a_dictionary):
         return None
 
     max_v = list(a_dictionary.values())[0]
+    max_k = list(a_dictionary)[0]
 
     for k, v in a_dictionary.items():
         if v > max_v:
