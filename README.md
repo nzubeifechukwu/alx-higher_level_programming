@@ -1,1 +1,1 @@
-#Higher level programming repo for the ALX SE programme
+# Higher level programming (Python) repo for the ALX SE programme
