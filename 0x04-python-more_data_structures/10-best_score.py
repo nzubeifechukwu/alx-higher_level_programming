@@ -11,13 +11,11 @@ def best_score(a_dictionary):
     if not isinstance(a_dictionary, dict):
         return None
 
-    keys = list(a_dictionary)
-    values = list(a_dictionary.values())
-    max_v = values[0]
+    max_v = list(a_dictionary.values())[0]
 
-    for i, v in enumerate(values):
+    for k, v in a_dictionary.items():
         if v > max_v:
             max_v = v
-            max_k = keys[i]
+            max_k = k
 
     return max_k
