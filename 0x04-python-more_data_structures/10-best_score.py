@@ -8,11 +8,16 @@ def best_score(a_dictionary):
     Return:
         key of with biggest int value
     '''
-    max_v = 0
     if not isinstance(a_dictionary, dict):
         return None
-    for k, v in a_dictionary.items():
+
+    keys = list(a_dictionary)
+    values = list(a_dictionary.values())
+    max_v = values[0]
+
+    for i, v in enumerate(values):
         if v > max_v:
             max_v = v
-            max_k = k
+            max_k = keys[i]
+
     return max_k
