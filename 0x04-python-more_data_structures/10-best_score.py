@@ -8,7 +8,7 @@ def best_score(a_dictionary):
     Return:
         key of with biggest int value
     '''
-    if not isinstance(a_dictionary, dict):
+    if not isinstance(a_dictionary, dict) or a_dictionary == {}:
         return None
 
     max_v = list(a_dictionary.values())[0]
