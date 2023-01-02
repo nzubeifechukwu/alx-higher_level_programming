@@ -1,0 +1,31 @@
+The ``3-say_my_name`` module
+============================
+
+This module contains the ``say_my_name`` function.
+
+Usage
+-----
+
+``say_my_name`` takes two arguments: ``first_name`` and ``last_name``. These
+arguments are supposed to be strings. ``last_name`` defaults to an empty
+string. The function prints: My name is <first_name> <last_name>
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name('Nzube')
+	My name is Nzube 
+
+	>>> say_my_name('Nzube', 'Ifechukwu')
+	My name is Nzube Ifechukwu
+
+``say_my_name`` raises a TypeError if any of first_name and last_name are not
+string:
+
+	>>> say_my_name(7, 'Okeke')
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string
+
+	>>> say_my_name('Nzubechukwu', ['Ifechukwu'])
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
