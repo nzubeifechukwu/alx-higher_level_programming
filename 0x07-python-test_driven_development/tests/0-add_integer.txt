@@ -1,0 +1,55 @@
+The ``0-add_integer`` module
+============================
+
+This module contains only the ``add_integer`` function
+
+Using ``add_integer``
+---------------------
+
+``add_integer`` returns the sum of its arguments, a and b. The arguments must
+be integers.
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(2, 3)
+	5
+
+``b`` defaults to 98:
+
+	>>> add_integer(2)
+	100
+
+The function also handles negative integers:
+
+	>>> add_integer(-2, 4)
+	2
+
+It casts floating-point values to int:
+
+	>>> add_integer(2.4, 6)
+	8
+
+It raises a TypeError if any of ``a`` and ``b`` is not a number:
+
+	>>> add_integer(None)
+	Traceback (most recent call last):
+	    ...
+	TypeError: a must be an integer
+
+	>>> add_integer(4, '6')
+	Traceback (most recent call last):
+	    ...
+	TypeError: b must be an integer
+
+It raises a TypeError if no argument is passed:
+
+	>>> add_integer()
+	Traceback (most recent call last):
+	    ...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+It raises a TypeError if more than two arguments are passed:
+
+	>>> add_integer(2, 4, 5)
+	Traceback (most recent call last):
+	    ...
+	TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
