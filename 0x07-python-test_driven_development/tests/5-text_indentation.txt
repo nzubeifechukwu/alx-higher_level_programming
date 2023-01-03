@@ -1,0 +1,27 @@
+The ``5-text_indentation`` module
+=================================
+
+``5-text_indentation`` contains the ``text_indentation`` function.
+
+Usage
+-----
+
+``text_indentation`` prints a text with two new lines after each of these
+characters: ``.``, ``?`` and ``:``. It accepts the text to print as its only
+argument.
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+	>>> text_indentation('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n\n
+
+It strips spaces at the beginning or end of each printed line:
+
+	>>> text_indentation('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere?')
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n\nQuonam modo?\n\nUtrum igitur tibi litteram videor an totas paginas commovere?\n\n
+
+It raises a typeError if text is not string:
+
+	>>> text_indentation([])
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
