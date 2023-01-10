@@ -1,0 +1,34 @@
+``7-base_geometry`` module
+==========================
+
+This module contains the BaseGeometry class.
+
+Usage
+-----
+
+It has two public instance methods: ``area`` and ``integer_validator``.
+``area`` raises an Exception while ``integer_validator`` ensures that given
+dimensions of a class instance are positive integers before they can be used.
+``integer_validator`` accepts two arguments: ``name`` and ``value``.
+``name`` is name of a dimension; it will always be string.
+``value`` is the value that will be associated with the dimension.
+``integer_validator`` checks that value is a postive integer
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+	>>> bg.area()
+	Traceback (most recent call last):
+		...
+	Exception: area() is not implemented
+
+	>>> bg.integer_validator("width", 12)
+
+	>>> bg.integer_validator("width", "Joe")
+	Traceback (most recent call last):
+		...
+	TypeError: width must be an integer
+
+	>>> bg.integer_validator('width', 0)
+	Traceback (most recent call last):
+		...
+	ValueError: width must be greater than 0
