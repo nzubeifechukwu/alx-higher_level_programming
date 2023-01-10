@@ -12,9 +12,7 @@ def append_write(filename='', text=''):
         text: string to append
 
     Returns:
-       number of characters appended 
+        number of characters appended
     '''
     with open(filename, 'a', encoding='utf-8') as f:
-        bytes_written = f.write(text)
-
-    return bytes_written
+        return f.write(text)
