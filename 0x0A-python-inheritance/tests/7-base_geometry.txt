@@ -36,7 +36,9 @@ dimensions of a class instance are positive integers before they can be used.
 	>>> bg = BaseGeometry(2)
 	Traceback (most recent call last):
 		...
-	TypeError: BaseGeometry() takes no arguments
+	TypeError: __init__() takes 1 positional argument but 2 were given
+
+BaseGeometry() takes no arguments
 
 	>>> bg.integer_validator("width", [1, 2])
         Traceback (most recent call last):
