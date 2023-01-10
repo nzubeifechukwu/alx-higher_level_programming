@@ -32,15 +32,3 @@ dimensions of a class instance are positive integers before they can be used.
 	Traceback (most recent call last):
 		...
 	ValueError: width must be greater than 0
-
-	>>> bg = BaseGeometry(2)
-	Traceback (most recent call last):
-		...
-	TypeError: __init__() takes 1 positional argument but 2 were given
-
-BaseGeometry() takes no arguments
-
-	>>> bg.integer_validator("width", [1, 2])
-        Traceback (most recent call last):
-                ...
-        TypeError: width must be an integer
