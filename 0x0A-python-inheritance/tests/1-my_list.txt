@@ -1,0 +1,43 @@
+``1-my_list`` module
+====================
+
+This module contains ``MyList`` class
+
+Using ``MyList``
+----------------
+
+``MyList`` inherits from the list class. Its ``print_sorted`` public instance
+method prints the list instance in ascending order
+(it assumes the elements are all of type int).
+
+	>>> MyList = __import__('1-my_list').MyList
+	>>> my_list = MyList()
+	>>> print(my_list)
+	[]
+
+Let's append elements to the list:
+
+	>>> my_list.append(1)
+	>>> my_list.append(4)
+	>>> my_list.append(2)
+	>>> my_list.append(3)
+	>>> my_list.append(5)
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+
+Let's sort the list by calling the ``print_sorted`` method:
+
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
+
+It doesn't sort in place:
+
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+
+A TypeError is raised when you try to pass an argument directly to the class:
+
+	>>> my_list = MyList(1)
+	Traceback (most recent call last):
+		...
+	TypeError: __init__() takes 1 positional argument but 2 were given
