@@ -32,3 +32,8 @@ dimensions of a class instance are positive integers before they can be used.
 	Traceback (most recent call last):
 		...
 	ValueError: width must be greater than 0
+
+	>>> bg.integer_validator('width', -2)
+	Traceback (most recent call last):
+		...
+	ValueError: width must be greater than 0
