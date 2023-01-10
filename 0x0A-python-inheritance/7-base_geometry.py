@@ -6,6 +6,11 @@
 class BaseGeometry:
     '''Represents a BaseGeometry class
     '''
+    def __init__(self):
+        '''Instantiates the class
+        '''
+        pass
+
     def area(self):
         '''Computes the area of the BaseGeometry instance
         '''
