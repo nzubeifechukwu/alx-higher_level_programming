@@ -9,12 +9,10 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 filename = 'add_item.json'
 
-# create a JSON representation of an empty list and save it in filename
-save_to_json_file([], filename)
-
-# Since filename now holds the JSON representation of an empty list,
-# arguments will hold an empty list after filename is decoded
-arguments = load_from_json_file(filename)
+try:
+    arguments = load_from_json_file(filename)
+except FileNotFoundError:
+    arguments = []
 
 # for each time this module is run with command line arguments,
 # append the arguments to the existing arguments list.
@@ -22,4 +20,5 @@ arguments = load_from_json_file(filename)
 # and save it in filename
 for arg in sys.argv[1:]:
     arguments.append(arg)
-    save_to_json_file(arguments, filename)
+
+save_to_json_file(arguments, filename)
