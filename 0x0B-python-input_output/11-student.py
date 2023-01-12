@@ -40,6 +40,5 @@ class Student:
         Args:
             json: dict repr of all public attributes of a Student instance
         '''
-        self.first_name = json['first_name']
-        self.last_name = json['last_name']
-        self.age = json['age']
+        for k, v in json.items():
+            setattr(self, k, v)
