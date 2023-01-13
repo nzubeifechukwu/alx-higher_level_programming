@@ -21,6 +21,12 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def __str__(self):
+        '''Demonstrates how to print the Rectangle instance
+        '''
+        return ('[Rectangle] ({}) {}/{} - {}/{}'.format(
+            self.id, self.x, self.y, self.width, self.height))
+
     @property
     def width(self):
         '''Gets and sets the width attributes
@@ -91,3 +97,17 @@ class Rectangle(Base):
             raise TypeError('y must be an integer')
         if value < 0:
             raise ValueError('y must be >= 0')
+        self.__y = value
+
+    def area(self):
+        '''Returns the area of the Rectangle instance
+        '''
+        return (self.width * self.height)
+
+    def display(self):
+        '''Prints the Rectangle instance in stdout with the character #
+        '''
+        for i in range(self.height):
+            for j in range(self.width):
+                print('#', end='')
+            print()
