@@ -116,3 +116,10 @@ class Rectangle(Base):
             for j in range(self.width):
                 print('#', end='')
             print()
+
+    def update(self, *args):
+        '''Assigns arguments to attributes
+        '''
+        # (self.id, self.width, self.height, self.x, self.y) = args
+        self.__dict__.update(locals())
+
