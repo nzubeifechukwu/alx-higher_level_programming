@@ -117,10 +117,16 @@ class Rectangle(Base):
                 print('#', end='')
             print()
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         '''Assigns arguments to attributes
         '''
         attributes = list(vars(self).keys())
-        for i in range(len(args)):
-            vars(self)[attributes[i]] = args[i]
-
+        if bool(args):  # args exists and is not empty
+            for i in range(len(args)):
+                vars(self)[attributes[i]] = args[i]
+        else:
+            for k, v in kwargs.items():
+                if k in attributes:
+                    vars(self)[k] = v
+                else:
+                    setattr(self, k, v)
