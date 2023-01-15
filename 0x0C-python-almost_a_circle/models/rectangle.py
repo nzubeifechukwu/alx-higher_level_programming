@@ -130,3 +130,12 @@ class Rectangle(Base):
                     vars(self)[k] = v
                 else:
                     setattr(self, k, v)
+
+    def to_dictionary(self):
+        '''Returns the dictionary representation of a Rectangle
+        '''
+        dict_repr = {}
+        attributes = ['id', 'width', 'height', 'x', 'y']
+        for attr in attributes:
+            dict_repr[attr] = getattr(self, attr)
+        return dict_repr
