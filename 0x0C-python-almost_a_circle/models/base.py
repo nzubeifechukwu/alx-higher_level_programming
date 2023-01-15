@@ -44,3 +44,11 @@ class Base:
                 list_dicts = [obj.to_dictionary() for obj in list_objs]
                 # json.dump(list_dicts, f) achieves same thing as next line
                 f.write(Base.to_json_string(list_dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        '''Returns the list of JSON string representation
+        '''
+        if json_string is None or json_string == '':
+            return []
+        return json.loads(json_string)
