@@ -47,8 +47,6 @@ class Square(Rectangle):
         '''Updates the attributes of the Square instance
         '''
         if bool(args):  # args exists and is not empty
-            if len(args) > 4:
-                return
             self.id = args[0]
             if len(args) > 1:
                 self.size = args[1]
@@ -56,7 +54,7 @@ class Square(Rectangle):
                 self.x = args[2]
             if len(args) > 3:
                 self.y = args[3]
-        elif bool(kwargs):
+        else:
             for k, v in kwargs.items():
                 if k == 'id':
                     self.id = v
@@ -66,3 +64,12 @@ class Square(Rectangle):
                     self.x = v
                 if k == 'y':
                     self.y = v
+
+    def to_dictionary(self):
+        '''Returns the dictionary representation of a Square instance
+        '''
+        attributes = ['id', 'size', 'x', 'y']
+        dict_repr = {}
+        for attr in attributes:
+            dict_repr[attr] = getattr(self, attr)
+        return dict_repr
