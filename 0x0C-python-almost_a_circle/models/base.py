@@ -2,6 +2,7 @@
 '''Defines a Base class
 '''
 import json
+#from os import path
 
 
 class Base:
@@ -64,3 +65,18 @@ class Base:
             dummy = cls(1)
         dummy.update(dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        '''Returns a list of instances
+        '''
+        filename = cls.__name__ + '.json'
+        try:
+            with open(filename, 'r', 'utf-8') as f:
+                json_str = f.read()
+            #list_dict = from_json_string(json_str)
+            #return [cls.create(d) for d in list_dict]
+        except FileNotFoundError:
+            return []
+        list_dict = cls.from_json_string(json_str)
+        return [cls.create(**d) for d in list_dict]
