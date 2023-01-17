@@ -29,8 +29,13 @@ class Base:
     def to_json_string(list_dictionaries):
         '''Returns the JSON string representation of list_dictionaries
         '''
-        if list_dictionaries is None or list_dictionaries == []:
+        if list_dictionaries is None:
             return '[]'
+        if type(list_dictionaries) is not list:
+            raise TypeError('to_json_string argument must be a list of dicts')
+        for obj in list_dictionaries:
+            if type(obj) is not dict:
+                raise TypeError('items in to_json_string arg must be dicts')
         return json.dumps(list_dictionaries)
 
     @classmethod
