@@ -12,6 +12,11 @@ class TestBaseClass(unittest.TestCase):
     '''Tests the Base class and its associated methods and attributes
     '''
 
+    def test_instance_type(self):
+        '''Tests that the class instance is of type Base
+        '''
+        self.assertIs(type(b), Base)
+
     def test_id_int(self):
         '''Tests if id attribute is of type int
         '''
