@@ -12,22 +12,22 @@ class TestBaseClass(unittest.TestCase):
     def setUp(self):
         '''Initializes conditions for all test methods
         '''
-        b = Base()
+        self.inst = Base()
 
     def test_instance_type(self):
         '''Tests that the class instance is of type Base
         '''
-        self.assertIs(type(b), Base)
+        self.assertIs(type(self.inst), Base)
 
     def test_id_int(self):
         '''Tests if id attribute is of type int
         '''
-        self.assertIs(type(b.id), int)
+        self.assertIs(type(self.inst.id), int)
 
     def test_to_json_string(self):
         '''Tests to_json_string static method
         '''
-        self.assertEqual(b.to_json_string(None), '[]')
-        self.assertEqual(b.to_json_string([]), '[]')
-        self.assertRaises(TypeError, b.to_json_string, 1)
-        self.assertRaises(TypeError, b.to_json_string, [1])
+        self.assertEqual(self.inst.to_json_string(None), '[]')
+        self.assertEqual(self.inst.to_json_string([]), '[]')
+        self.assertRaises(TypeError, self.inst.to_json_string, 1)
+        self.assertRaises(TypeError, self.inst.to_json_string, [1])
