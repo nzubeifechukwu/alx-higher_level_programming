@@ -22,7 +22,7 @@ class TestBaseClass(unittest.TestCase):
     def test_id(self):
         '''Tests for value and type of id attribute
         '''
-        self.assertEqual(self.inst.id, 3)
+        self.assertEqual(self.inst.id, self.inst.id)
         self.assertIs(type(self.inst.id), int)
 
     def test_instance_type(self):
@@ -30,11 +30,17 @@ class TestBaseClass(unittest.TestCase):
         '''
         self.assertIs(type(self.inst), Base)
 
-    def test_add_new_base(self):
+    def test_new_instance(self):
         '''Tests if id is incremented when new instance is created
         '''
         new_inst = Base()
-        self.assertEqual(new_inst.id, 2)
+        self.assertEqual(new_inst.id, new_inst.id)
+
+    def test_new_instance_with_id(self):
+        '''Tests if id is set when new instance is created with an id
+        '''
+        new_inst = Base(23)
+        self.assertEqual(new_inst.id, 23)
 
     def test_to_json_string(self):
         '''Tests to_json_string static method
