@@ -10,9 +10,14 @@ class TestBaseClass(unittest.TestCase):
     '''
 
     def setUp(self):
-        '''Initializes conditions for all test methods
+        '''Initializes variable before each test method is run
         '''
         self.inst = Base()
+
+    def tearDown(self):
+        '''Deletes the variable after each test method is run
+        '''
+        del self.inst
 
     def test_instance_type(self):
         '''Tests that the class instance is of type Base
