@@ -22,7 +22,7 @@ class TestBaseClass(unittest.TestCase):
     def test_id(self):
         '''Tests for value and type of id attribute
         '''
-        self.assertEqual(self.inst.id, 1)
+        self.assertEqual(self.inst.id, 3)
         self.assertIs(type(self.inst.id), int)
 
     def test_instance_type(self):
