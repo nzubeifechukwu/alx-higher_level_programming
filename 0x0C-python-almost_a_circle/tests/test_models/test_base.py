@@ -19,10 +19,11 @@ class TestBaseClass(unittest.TestCase):
         '''
         self.assertIs(type(self.inst), Base)
 
-    def test_id_int(self):
+    def test_id(self):
         '''Tests if id attribute is of type int
         '''
         self.assertIs(type(self.inst.id), int)
+        self.assertEqual(self.inst.id, 1)
 
     def test_to_json_string(self):
         '''Tests to_json_string static method
