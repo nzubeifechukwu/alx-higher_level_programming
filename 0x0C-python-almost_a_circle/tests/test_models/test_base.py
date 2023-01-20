@@ -2,15 +2,17 @@
 '''Unittest for Base class
 '''
 import unittest
-
-
 from models.base import Base
-b = Base()
 
 
 class TestBaseClass(unittest.TestCase):
     '''Tests the Base class and its associated methods and attributes
     '''
+
+    def setUp(self):
+        '''Initializes conditions for all test methods
+        '''
+        b = Base()
 
     def test_instance_type(self):
         '''Tests that the class instance is of type Base
