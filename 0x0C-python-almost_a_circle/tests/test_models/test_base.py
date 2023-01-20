@@ -19,16 +19,22 @@ class TestBaseClass(unittest.TestCase):
         '''
         del self.inst
 
+    def test_id(self):
+        '''Tests for value and type of id attribute
+        '''
+        self.assertEqual(self.inst.id, 1)
+        self.assertIs(type(self.inst.id), int)
+
     def test_instance_type(self):
-        '''Tests that the class instance is of type Base
+        '''Tests if instance type is Base
         '''
         self.assertIs(type(self.inst), Base)
 
-    def test_id(self):
-        '''Tests if id attribute is of type int
+    def test_add_new_base(self):
+        '''Tests if id is incremented when new instance is created
         '''
-        self.assertIs(type(self.inst.id), int)
-        self.assertEqual(self.inst.id, 1)
+        new_inst = Base()
+        self.assertEqual(new_inst.id, 2)
 
     def test_to_json_string(self):
         '''Tests to_json_string static method
