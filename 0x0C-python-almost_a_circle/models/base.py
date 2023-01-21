@@ -42,6 +42,11 @@ class Base:
     def save_to_file(cls, list_objs):
         '''Writes the JSON string representation of list_objs to a file
         '''
+        if type(list_objs) not in (None, list):
+            raise TypeError('list_objs must be of type list')
+        for obj in list_objs:
+            if not issubclass(type(obj), cls):
+                raise TypeError('items in list_objs must inherit from Base')
         filename = cls.__name__ + '.json'
         with open(filename, 'w', encoding='utf-8') as f:
             if list_objs is None:
