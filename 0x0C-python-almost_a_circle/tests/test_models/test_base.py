@@ -3,8 +3,6 @@
 '''
 import unittest
 from models.base import Base
-from models.rectangle import Rectangle
-from models.square import Square
 
 
 class TestBaseClass(unittest.TestCase):
@@ -17,7 +15,7 @@ class TestBaseClass(unittest.TestCase):
         self.inst = Base()
 
     def tearDown(self):
-        '''Deletes the variable after each test method is run
+        '''Destroys variable after each test method is run
         '''
         del self.inst
 
@@ -47,28 +45,27 @@ class TestBaseClass(unittest.TestCase):
     def test_to_json_string(self):
         '''Tests to_json_string static method
         '''
-        self.assertEqual(self.inst.to_json_string(None), '[]')
-        self.assertEqual(self.inst.to_json_string([]), '[]')
-        self.assertEqual(self.inst.to_json_string([{'id': 1}]), '[{"id": 1}]')
+        self.assertEqual(Base.to_json_string(None), '[]')
+        self.assertEqual(Base.to_json_string([]), '[]')
+        self.assertEqual(Base.to_json_string([{'id': 1}]), '[{"id": 1}]')
         with self.assertRaises(TypeError):
-            self.inst.to_json_string(1)
+            Base.to_json_string(1)
         with self.assertRaises(TypeError):
-            self.inst.to_json_string([1])
+            Base.to_json_string([1])
 
-    def test_save_to_file(self):
-        '''Tests save_to_file class method
-        '''
-        with self.assertRaises(TypeError):
-            Square.save_to_file([Rectangle(2, 3)])
-        with self.assertRaises(TypeError):
-            Rectangle.save_to_file(Rectangle(2, 3))
+#    Test class methods of a super class in the test files of the subclasses
+#    def test_save_to_file(self):
+#        with self.assertRaises(TypeError):
+#            Square.save_to_file([Rectangle(2, 3)])
+#        with self.assertRaises(TypeError):
+#            Rectangle.save_to_file(Rectangle(2, 3))
 
     def test_from_json_string(self):
         '''Tests from_json_string static method
         '''
         self.assertEqual(
-                self.inst.from_json_string('[{"id": 1}]'), [{'id': 1}])
-        self.assertEqual(self.inst.from_json_string(None), [])
-        self.assertEqual(self.inst.from_json_string(''), [])
+                Base.from_json_string('[{"id": 1}]'), [{'id': 1}])
+        self.assertEqual(Base.from_json_string(None), [])
+        self.assertEqual(Base.from_json_string(''), [])
         with self.assertRaises(TypeError):
-            self.inst.from_json_string(1)
+            Base.from_json_string(1)
