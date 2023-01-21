@@ -62,6 +62,8 @@ class Base:
         '''
         if json_string is None or json_string == '':
             return []
+        if type(json_string) is not str:
+            raise TypeError('json_string must be str repr of a list of dicts')
         return json.loads(json_string)
 
     @classmethod

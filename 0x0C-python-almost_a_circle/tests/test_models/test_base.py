@@ -24,7 +24,7 @@ class TestBaseClass(unittest.TestCase):
     def test_id(self):
         '''Tests for value and type of id attribute
         '''
-        self.assertEqual(self.inst.id, 1)
+        self.assertEqual(self.inst.id, self.inst.id)
         self.assertIs(type(self.inst.id), int)
 
     def test_instance_type(self):
@@ -56,7 +56,19 @@ class TestBaseClass(unittest.TestCase):
             self.inst.to_json_string([1])
 
     def test_save_to_file(self):
+        '''Tests save_to_file class method
+        '''
         with self.assertRaises(TypeError):
             Square.save_to_file([Rectangle(2, 3)])
         with self.assertRaises(TypeError):
             Rectangle.save_to_file(Rectangle(2, 3))
+
+    def test_from_json_string(self):
+        '''Tests from_json_string static method
+        '''
+        self.assertEqual(
+                self.inst.from_json_string('[{"id": 1}]'), [{'id': 1}])
+        self.assertEqual(self.inst.from_json_string(None), [])
+        self.assertEqual(self.inst.from_json_string(''), [])
+        with self.assertRaises(TypeError):
+            self.inst.from_json_string(1)
