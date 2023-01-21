@@ -3,6 +3,8 @@
 '''
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBaseClass(unittest.TestCase):
@@ -52,3 +54,9 @@ class TestBaseClass(unittest.TestCase):
             self.inst.to_json_string(1)
         with self.assertRaises(TypeError):
             self.inst.to_json_string([1])
+
+    def test_save_to_file(self):
+        with self.assertRaises(TypeError):
+            Square.save_to_file([Rectangle(2, 3)])
+        with self.assertRaises(TypeError):
+            Rectangle.save_to_file(Rectangle(2, 3))
