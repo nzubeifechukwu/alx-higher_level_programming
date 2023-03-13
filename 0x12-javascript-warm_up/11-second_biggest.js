@@ -15,8 +15,6 @@ if (len <= 3) {
     newArgs.push(parseInt(n));
   }
   newArgs.sort(function (a, b) { return a - b; }); // sort int arr in asc order
-  console.log(newArgs);
   const distinct = [...new Set(newArgs)]; // keeps only distinct values
-  console.log(distinct);
   console.log(distinct[distinct.length - 2]);
 }
