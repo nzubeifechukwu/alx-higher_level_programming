@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 
 /*
  * Prints two arguments passed to it, interlinked by an 'is'
