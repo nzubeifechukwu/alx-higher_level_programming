@@ -3,8 +3,8 @@
 /*
  * Finds the second biggest integer in a list of arguments
  */
-const len = process.argv.length
-let args = process.argv
+const len = process.argv.length;
+const args = process.argv;
 
 if (len <= 3) {
   console.log(0);
