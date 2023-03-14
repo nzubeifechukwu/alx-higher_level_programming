@@ -4,11 +4,10 @@
  * Defines a Rectangle class
  */
 class Rectangle {
-  width;
-  height;
-
   constructor(w, h) {
-    this.weight = w;
+    this.width = w;
     this.height = h;
   }
 }
+
+module.exports = Rectangle;
