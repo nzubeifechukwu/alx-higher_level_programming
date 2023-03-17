@@ -11,18 +11,17 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine, Column, Integer, String, Sequence
 from sys import argv
 
-engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}\
+if __name__ == '__main__':
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}\
         '.format(argv[1], argv[2], argv[3]), pool_pre_ping=True)
-Base = declarative_base()
+    Base = declarative_base()
 
+    class State(Base):
+        '''State class inherits from Base class
+        '''
+        __tablename__ = 'states'
+        seq = Sequence('state_id_seq')
+        id = Column(Integer, seq, primary_key=True, nullable=False)
+        name = Column(String(128), nullable=False)
 
-class State(Base):
-    '''State class inherits from Base class
-    '''
-    __tablename__ = 'states'
-    id = Column(
-        Integer, Sequence('state_id_seq'), primary_key=True, nullable=False)
-    name = Column(String(128), nullable=False)
-
-
-Base.metadata.create_all(engine)
+    Base.metadata.create_all(engine)
