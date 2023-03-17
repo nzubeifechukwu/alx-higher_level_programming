@@ -18,6 +18,7 @@ if __name__ == '__main__':
         if row != rows[len(rows) - 1]:
             print(*row, end=', ')
         else:
-            print(*row)
+            print(*row, end='')
+    print()
     cur.close()
     conn.close()
