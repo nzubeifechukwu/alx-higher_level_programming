@@ -12,8 +12,6 @@ from sqlalchemy import create_engine, Column, Integer, String, Sequence
 from sys import argv
 
 if __name__ == '__main__':
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}\
-        '.format(argv[1], argv[2], argv[3]), pool_pre_ping=True)
     Base = declarative_base()
 
     class State(Base):
@@ -24,4 +22,6 @@ if __name__ == '__main__':
         id = Column(Integer, seq, primary_key=True, nullable=False)
         name = Column(String(128), nullable=False)
 
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}\
+        '.format(argv[1], argv[2], argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
