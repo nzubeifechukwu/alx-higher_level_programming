@@ -8,8 +8,8 @@ const fs = require('fs');
 const process = require('process');
 
 fs.readFile(process.argv[2], 'utf-8', function (error, data) {
-	if (error) {
-		return console.error(error);
-	}
-	console.log(data.toString());
+  if (error) {
+    return console.error(error);
+  }
+  console.log(data.toString());
 });
